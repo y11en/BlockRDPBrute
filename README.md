@@ -1,6 +1,6 @@
 # BlockRDPBrute
 ## 方案一、RuntimeEventlogAudit (ring3 plan)
-### 通过读取windows实时日志检测RDP连接情况，其中
+通过读取windows实时日志检测RDP连接情况，其中
 * EventID = 4624, 登陆成功
 * EventID = 4625, 登陆失败
 需要特殊关注
@@ -8,7 +8,7 @@
 ![](https://github.com/y11en/BlockRDPBrute/blob/master/RuntimeEventLogAudit/img/test.png)
 
 ## 方案二、WFP (ring0 plan)
-### 使用 网络协议过滤框架，通过在`FWPM_LAYER_ALE_FLOW_ESTABLISHED_V4`收集对端信息，在`FWPM_LAYER_STREAM_V4`层进行数据包校验（在stream层单独做可能也行，没有验证），判断是不是RDP数据握手包（请求验证），基于2条规则,
+使用 网络协议过滤框架，通过在`FWPM_LAYER_ALE_FLOW_ESTABLISHED_V4`收集对端信息，在`FWPM_LAYER_STREAM_V4`层进行数据包校验（在stream层单独做可能也行，没有验证），判断是不是RDP数据握手包（请求验证），基于2条规则,
 * 握手总次数(>=20次)
 * 握手频率 (>=2次/1s)
 就给你安排了(block)
