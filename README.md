@@ -7,5 +7,5 @@
 ### 效果
 ![](https://github.com/y11en/BlockRDPBrute/blob/master/RuntimeEventLogAudit/img/test.png)
 
-## WFP (ring plan)
+## WFP (ring0 plan)
 Half a moment!
